@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function(){
         });
     }
     
-    // helper function - it creates elements for each image in the API
     const addDogImages = (imagePlaceholder) => {
         let dogImageContainer = document.querySelector("#dog-image-container");
         let dogImageTag = document.createElement("img");
@@ -23,23 +22,26 @@ document.addEventListener('DOMContentLoaded', function(){
     
     /* Deliverable 2 */
     
-    // function getDogs(){
-    //     const breedUrl = 'https://dog.ceo/api/breeds/list/all'
-    //     fetch(breedUrl)
-    //     .then(response => response.json());
-    //     .then(results => {
-    //         breeds = Object.keys(results.message);
-    //         createDogBreedList(breeds);
-    //         // addBreedSelectListener
-    //     })
-    // }
+    function getDogs(){
+        const breedUrl = 'https://dog.ceo/api/breeds/list/all'
+        fetch(breedUrl)
+        .then(response => response.json())
+        .then(results => {
+            breeds = Object.keys(results.message);
+            createDogBreedList(breeds);
+        })
+    }
+
+    function createDogBreedList(breeds){
+        // select the dog ul
+        const dogBreeds = document.querySelector(".dog-breeds");
+        // create li
+        let dogBreedList = document.createElement("li");
+        // for each dog, create as li
+        
+        dogBreeds.append(dogBreedList);
+    }
     
-    // // function creates ul and adds list to ul
-    // function createDogBreedList(breeds){
-    //     let unList = document.querySelector("#dog-breeds");
-    //     let dogBreedList = document.createElement("li");
-    //     unList.append(dogBreedList);
-    // }
     
     
     // /* Deliverable 3 */
@@ -66,5 +68,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
     
     returnDogImages();
+    getDogs();
 
 })
