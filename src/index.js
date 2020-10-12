@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', (){
         const dogBreedsUl = document.querySelector("#dog-breeds");
         breeds.message.forEach(x => {
             const dogBreedLi = document.createElement("li");
+            dogBreedLi.id = "dog-breed-li";
             dogBreedLi.textContent = x;
             dogBreedsUl.append(dogBreedLi);
         })
@@ -37,15 +38,19 @@ document.addEventListener('DOMContentLoaded', (){
     /* Deliverable 3: once all breeds are rendered, font colors change on click */
     const clickHandler = () => {
         document.addEventListener('click', (e) => {
-
+            // if user clicks on dog breed list items
+            if (e.target.id === "dog-breed-li"){
+                // value of li attribute changes
+                
+            }
         })
     }
     
     
-    /* Deliverable 4 */
+    /* Deliverable 4: filter breeds that start with a particular letter using dropdown */
     
-    // Once we are able to load all of the dog breeds onto the page, add JavaScript so that the user can filter breeds that start with a particular letter using a dropdown.
     
+
     getDogImages();
     renderDogBreeds();
     clickHandler();
