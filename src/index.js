@@ -1,12 +1,11 @@
 document.addEventListener('DOMContentLoaded', (){
     
-    
-    /* Deliverable #1: */
-    const returnDogImages = () => {
+    /* Deliverable #1: fetch images and add elements to DOM */
+    const getDogImages = () => {
         const imgUrl = "https://dog.ceo/api/breeds/image/random/4"
         fetch(imgUrl)
-        .then(response => response.json())
-        .then(image => {addDogImages(image)})
+            .then(response => response.json())
+            .then(image => addDogImages(image))
     }
     
     const addDogImages = (image) => {
@@ -18,42 +17,36 @@ document.addEventListener('DOMContentLoaded', (){
         })
     }
     
-    
-    /* Deliverable 2 */
-    
-    function getDogs(){
+    /* Deliverable 2: fetch dog breeds and adds to a ul */
+    const renderDogBreeds = () => {
         const breedUrl = 'https://dog.ceo/api/breeds/list/all'
         fetch(breedUrl)
-        .then(response => response.json())
-        .then(results => {createBreeds(breeds)})
+            .then(response => response.json())
+            .then(breeds => createDogBreeds(breeds))
     }
     
-    function createBreeds(breeds){
-        // search for dog breeds ul
-        // create li's inside ul
-        // append dogBreedsUl with the li created
-        // add event listener here?
+    const createDogBreeds = breeds => {
+        const dogBreedsUl = document.querySelector("#dog-breeds");
+        breeds.message.forEach(x => {
+            const dogBreedLi = document.createElement("li");
+            dogBreedLi.textContent = x;
+            dogBreedsUl.append(dogBreedLi);
+        })
     }
     
-    // /* Deliverable 3 */
-    // add event listener
-    // function fontChange(){
-    //     document.addEventListener('click', e => {
-    //         // font color of a particular <li> changes on click.
-    //             if (e.target === dogBreedList){
-    //                 // font color change
-    //             } else if (e.target.matches)
-    //         }
-    //     })
-        
-    // }
-    
+    /* Deliverable 3: once all breeds are rendered, font colors change on click */
+    const clickHandler = () => {
+        document.addEventListener('click', (e) => {
+
+        })
+    }
     
     
     /* Deliverable 4 */
     
     // Once we are able to load all of the dog breeds onto the page, add JavaScript so that the user can filter breeds that start with a particular letter using a dropdown.
     
-    
-
+    getDogImages();
+    renderDogBreeds();
+    clickHandler();
 })
