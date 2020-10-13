@@ -28,10 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const renderDogBreeds = (breeds) => {
         const dogBreedsUl = document.querySelector("#dog-breeds");
-        breeds.message.forEach(x => {
+        breedKeys = Object.keys(breeds.message).forEach(breed => {
             const dogBreedLi = document.createElement("li");
             dogBreedLi.classList.add("dog-breed")             // add a class for selecting it later?
-            dogBreedLi.innerText = x;
+            dogBreedLi.innerText = breed;
             dogBreedsUl.append(dogBreedLi);
         })
     }
