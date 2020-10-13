@@ -49,9 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     /* Deliverable 4: filter breeds that start with a particular letter using dropdown */
     const filteredBreeds = () =>{
-        // document.addEventListener('click', (e) => {
-            // 
-        // })
+        document.addEventListener('click', (e) => {
+            
+        })
     }
     
 
