@@ -19,19 +19,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     /* Deliverable 2: fetch dog breeds and adds to a ul */
-    const renderDogBreeds = () => {
+    const getDogBreeds = () => {
         const breedUrl = 'https://dog.ceo/api/breeds/list/all'
         fetch(breedUrl)
             .then(response => response.json())
-            .then(breeds => createDogBreeds(breeds))
+            .then(breeds => renderDogBreeds(breeds))
     }
     
-    const createDogBreeds = (breeds) => {
+    const renderDogBreeds = (breeds) => {
         const dogBreedsUl = document.querySelector("#dog-breeds");
         breeds.message.forEach(x => {
             const dogBreedLi = document.createElement("li");
-            // add a class for selecting it later?
-            dogBreedLi.classList.add("dog-breed")
+            dogBreedLi.classList.add("dog-breed")             // add a class for selecting it later?
             dogBreedLi.innerText = x;
             dogBreedsUl.append(dogBreedLi);
         })
@@ -41,10 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const clickHandler = () => {
         document.addEventListener('click', (e) => {
             const dogBreedLi = document.querySelectorAll(".dog-breed")
-            // if user clicks on dog breed list items
             if (e.target.matches(dogBreedLi)){
                 // value of li attribute changes
-                
+                e.target.style.color = "blue";
             }
         })
     }
@@ -59,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
     getDogImages();
-    renderDogBreeds();
+    getDogBreeds();
     clickHandler();
     // filteredBreeds();
 })
