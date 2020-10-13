@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', (){
-    
+
     /* Deliverable #1: fetch images and add elements to DOM */
     const getDogImages = () => {
         const imgUrl = "https://dog.ceo/api/breeds/image/random/4"
@@ -29,8 +29,7 @@ document.addEventListener('DOMContentLoaded', (){
         const dogBreedsUl = document.querySelector("#dog-breeds");
         breeds.message.forEach(x => {
             const dogBreedLi = document.createElement("li");
-            dogBreedLi.id = "dog-breed-li";
-            dogBreedLi.textContent = x;
+            dogBreedLi.innerText = x;
             dogBreedsUl.append(dogBreedLi);
         })
     }
@@ -53,5 +52,5 @@ document.addEventListener('DOMContentLoaded', (){
 
     getDogImages();
     renderDogBreeds();
-    clickHandler();
+    // clickHandler();
 })
