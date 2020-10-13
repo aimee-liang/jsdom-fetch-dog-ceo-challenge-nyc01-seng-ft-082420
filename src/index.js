@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('click', (e) => {
             const dogBreedLi = document.querySelectorAll(".dog-breed")
             if (e.target.matches(dogBreedLi)){
-                // value of li attribute changes
                 e.target.style.color = "blue";
             }
         })
