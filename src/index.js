@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', (){
+document.addEventListener('DOMContentLoaded', () => {
 
     /* Deliverable #1: fetch images and add elements to DOM */
     const getDogImages = () => {
@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', (){
             .then(response => response.json())
             .then(image => addDogImages(image))
     }
+
     
     const addDogImages = (image) => {
         const dogImageContainer = document.querySelector("dog-image-container");
@@ -25,10 +26,12 @@ document.addEventListener('DOMContentLoaded', (){
             .then(breeds => createDogBreeds(breeds))
     }
     
-    const createDogBreeds = breeds => {
+    const createDogBreeds = (breeds) => {
         const dogBreedsUl = document.querySelector("#dog-breeds");
         breeds.message.forEach(x => {
             const dogBreedLi = document.createElement("li");
+            // add a class for selecting it later?
+            dogBreedLi.classList.add("dog-breed")
             dogBreedLi.innerText = x;
             dogBreedsUl.append(dogBreedLi);
         })
@@ -37,8 +40,9 @@ document.addEventListener('DOMContentLoaded', (){
     /* Deliverable 3: once all breeds are rendered, font colors change on click */
     const clickHandler = () => {
         document.addEventListener('click', (e) => {
+            const dogBreedLi = document.querySelectorAll(".dog-breed")
             // if user clicks on dog breed list items
-            if (e.target.id === "dog-breed-li"){
+            if (e.target.matches(dogBreedLi)){
                 // value of li attribute changes
                 
             }
@@ -47,10 +51,15 @@ document.addEventListener('DOMContentLoaded', (){
     
     
     /* Deliverable 4: filter breeds that start with a particular letter using dropdown */
-    
+    const filteredBreeds = () =>{
+        // document.addEventListener('click', (e) => {
+            // 
+        // })
+    }
     
 
     getDogImages();
     renderDogBreeds();
-    // clickHandler();
+    clickHandler();
+    // filteredBreeds();
 })
